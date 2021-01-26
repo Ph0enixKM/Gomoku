@@ -8,19 +8,27 @@ UI ui_window = NULL;
 UI ui_stack = NULL;
 UI ui_status = NULL;
 UI ui_verdict = NULL;
+UI ui_grid = NULL;
 
 // Data
 Player player = NONE;
+char* verdict = NULL;
+int* fields = NULL;
 bool turn = false;
 int size = 15;
 int winReq = 5;
-char* verdict = NULL;
-int* fields = NULL;
+Pos* trace = NULL;
 UI* btns = NULL;
+int gameBuffer = 64;
+
+// Pipes
+TlkPipe whiteDump;
+TlkPipe blackDump;
 
 // Files
-const char* file_lobby = ".lobby";
-const char* file_chat = ".chat";
+char* file_lobby = ".lobby";
+char* file_whiteDump = ".white-dump";
+char* file_blackDump = ".black-dump";
 
 // Text messages
 char* txt_lobbyWait = "Waiting for player";
@@ -46,6 +54,7 @@ void initGlobal(void) {
     verdict = txt_endLeft;
     fields = calloc(size * size, sizeof(int));
     btns = calloc(size * size, sizeof(UI));
+    trace = calloc(winReq, sizeof(Pos));
     // Load images
     img_logo = UILoadImageData("assets/logo.png");
     img_whitePawn = UILoadImageData("assets/white-pawn.png");

@@ -1,13 +1,29 @@
-CC=clang
+#########################
+#     Gomoku Makefile   #
+#   Author: Paweł Karaś #
+# Requirements: GTK+3.0 #
+#    Platform: Linux    #
+#########################
 
-all: main
-	dist/main
+CC = clang
+CFLAGS = -Wall -Wextra -Werror -I . -I include -ferror-limit=1
+LFLAGS = -lm 
+CGTK = `pkg-config --cflags gtk+-3.0`
+LGTK = `pkg-config --libs gtk+-3.0`
+NAME = Gomoku
+SRC = main.c include/include.c menu/menu.c utils/utils.c lobby/lobby.c talk/talk.c game/game.c game/check.c end/end.c 
 
-main: main.o
-	${CC} dist/main.o -o dist/main `pkg-config --cflags gtk+-3.0`
+all: $(NAME)
+	./$(NAME)
 
-# uik.o:
-# 	${CC} -c src/uik/uik.c -o dist/uik.o `pkg-config --libs gtk+-3.0` `pkg-config --cflags gtk+-3.0`
+$(NAME): gtkui.o
+	$(CC) -std=c11 $(SRC) gtkui.o $(CFLAGS) $(LFLAGS) $(CGTK) $(LGTK) -o $(NAME)
+	
+gtkui.o:
+	$(CC) -c gtkui/gtkui.c -o gtkui.o $(CFLAGS) $(CGTK)
 
-main.o:
-	${CC} -c src/main.c -o dist/main.o `pkg-config --libs gtk+-3.0` `pkg-config --cflags gtk+-3.0`
+clean:
+	rm gtkui.o
+	rm $(NAME)
+
+

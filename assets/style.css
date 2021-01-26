@@ -33,6 +33,34 @@
     padding: 0px;
     border: none;
     margin: 0px;
+    border-radius: 0px;
+}
+
+.black-field.trace {
+    background: rgb(27, 136, 0);
+    animation: win 3s infinite;
+}
+
+.black-field:hover {
+    background: #3a5108;
+    border: 2px solid #558c02;
+    animation: select 1s infinite;
+}
+
+.black-field.occupied:hover {
+    background: #512323;
+    border: 2px solid #410101;
+}
+
+.wait .black-field:hover {
+    background: #555;
+    border: 2px solid #333;
+    animation: select 2s infinite;
+}
+
+.wait .black-field.occupied:hover {
+    background: rgb(105, 66, 30);
+    border: 2px solid rgb(73, 48, 10);
 }
 
 #black-pawn {
@@ -47,6 +75,34 @@
     padding: 0px;
     border: none;
     margin: 0px;
+    border-radius: 0px;
+}
+
+.white-field.trace {
+    background: rgb(27, 136, 0);
+    animation: win 3s infinite;
+}
+
+.white-field:hover {
+    background: #50752e;
+    border: 2px solid #71af13;
+    animation: select 1s infinite;
+}
+
+.white-field.occupied:hover {
+    background: #7a3737;
+    border: 2px solid #410101;
+}
+
+.wait .white-field:hover {
+    background: #777;
+    border: 2px solid #555;
+    animation: select 2s infinite;
+}
+
+.wait .white-field.occupied:hover {
+    background: rgb(128, 87, 61);
+    border: 2px solid rgb(107, 67, 29);
 }
 
 #white-pawn {
@@ -56,6 +112,29 @@
     background-position: center;
 }
 
+@keyframes win {
+    0% {
+        background-color: rgb(27, 136, 0);
+    }
+    50% {
+        background-color: rgb(0, 156, 0);
+    }
+    100% {
+        background-color: rgb(27, 136, 0);
+    }
+}
+
+@keyframes select {
+    0% {
+        border-width: 2px;
+    }
+    50% {
+        border-width: 5px;
+    }
+    100% {
+        border-width: 2px;
+    }
+}
 
 @keyframes menu {
     0% {

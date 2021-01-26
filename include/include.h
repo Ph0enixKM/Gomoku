@@ -15,10 +15,11 @@
 
 #include "gtkui/gtkui.h"
 #include "lobby/lobby.h"
-#include "utils/utils.h"
 #include "talk/talk.h"
 #include "menu/menu.h"
 #include "game/game.h"
+#include "end/end.h"
+#include "utils/utils.h"
 
 // Init function for variables
 // using dynamic memory
@@ -33,19 +34,27 @@ extern UI ui_verdict;
 extern UI ui_window;
 extern UI ui_status;
 extern UI ui_stack;
+extern UI ui_grid;
 
 // Data
+extern int gameBuffer;
 extern Player player;
 extern char* verdict;
 extern int* fields;
 extern int winReq;
+extern Pos* trace;
 extern bool turn;
 extern int size;
 extern UI* btns;
 
+// Pipes
+extern TlkPipe whiteDump;
+extern TlkPipe blackDump;
+
 // Files
-extern const char* file_lobby;
-extern const char* file_chat;
+extern char* file_lobby;
+extern char* file_blackDump;
+extern char* file_whiteDump;
 
 // Text messages
 extern char* txt_lobbyWait;

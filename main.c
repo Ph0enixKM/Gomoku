@@ -18,6 +18,7 @@ int main(int argc, char* argv[]) {
     // Create all the required scenes
     createLobby();
     createMenu();
+    createEnd();
     // Join to a lobby (if exists)
     if (isLobby()) {
         player = joinLobby();
@@ -29,7 +30,6 @@ int main(int argc, char* argv[]) {
     else {
         UIStackVisibleName(ui_stack, scene_menu);
     }
-
     gtk_main();
     deleteGlobal();
 }
