@@ -41,45 +41,54 @@ static void turnPawn(UI this, int* pos) {
 static bool turnEnd(char* msg) {
     if (msg[0] == 'f') {
         gameCheck();
+        connected = false;
         return true;
     }
     if (msg[0] == 'b') {
         gameCheck();
+        connected = false;
         return true;
     }
     if (msg[0] == 'w') {
         gameCheck();
+        connected = false;
+        return true;
+    }
+    if (msg[0] == 'd') {
+        turnWait();
+        UISetLabelText(ui_status, txt_endLeft);
+        connected = false;
         return true;
     }
     return false;
 }
 
 static int turnWaitLoop(void* arg) {
-    if (!turn) {
-        unused(arg);
-        char* text = (player == WHITE) 
-            ? tlkPipeRecv(&blackDump) 
-            : tlkPipeRecv(&whiteDump);
-        if (text != NULL) {
-                if (turnEnd(text)) return false;
-                int x, y;
-                sscanf(text, "%d %d", &x, &y);
-                int place = y * size + x;
-                UI field = btns[place];
-                fields[place] = (player == BLACK ? 'w' : 'b');
-                UI img = UILoadImage((player == BLACK)
-                    ? resize(img_whitePawn, 30, 30)
-                    : resize(img_blackPawn, 30, 30)
-                );
-                gtk_button_set_image(GTK_BUTTON(field), img);
-                UIAddClass(field, "occupied");
-                turnMove();
+    unused(arg);
+    char* text = (player == WHITE) 
+        ? tlkPipeRecv(&blackDump) 
+        : tlkPipeRecv(&whiteDump);
+    if (text != NULL) {
+        if (turnEnd(text)) return false;
+        if (!turn) {
+            int x, y;
+            sscanf(text, "%d %d", &x, &y);
+            int place = y * size + x;
+            UI field = btns[place];
+            fields[place] = (player == BLACK ? 'w' : 'b');
+            UI img = UILoadImage((player == BLACK)
+                ? resize(img_whitePawn, 30, 30)
+                : resize(img_blackPawn, 30, 30)
+            );
+            gtk_button_set_image(GTK_BUTTON(field), img);
+            UIAddClass(field, "occupied");
+            turnMove();
         }
     }
     return true;
 }
 
-void gameOver() {
+void gameOver(char symbol) {
     UIAddClass(ui_grid, "wait");
     turn = false;
     if (!isNullized(trace)) {
@@ -87,6 +96,8 @@ void gameOver() {
             int place = trace[i].y * size + trace[i].x;
             UI field = btns[place];
             UIAddClass(field, "trace");
+            if (player == symbol)
+                UIAddClass(field, "win");
         }
     }
 }
@@ -138,5 +149,5 @@ void createGame() {
         );
         turnWait();
     }
-    g_timeout_add(1, turnWaitLoop, NULL);
+    g_timeout_add(16, turnWaitLoop, NULL);
 }

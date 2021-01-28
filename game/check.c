@@ -95,19 +95,18 @@ void gameCheck() {
         ? file_blackDump 
         : file_whiteDump;
     if (fullBoard) {
-        UISetLabelText(ui_verdict, txt_endFull);
-        UIStackVisibleName(ui_stack, scene_end);
+        UISetLabelText(ui_status, txt_endFull);
         tlkSend(file, "full");
-        gameOver();
+        gameOver('f');
     }
     if (playerCheck(BLACK)) {
         UISetLabelText(ui_status, (player == BLACK ? txt_endWin : txt_endLoose));
         tlkSend(file, "black");
-        gameOver();
+        gameOver('b');
     }
     if (playerCheck(WHITE)) {
         UISetLabelText(ui_status, (player == WHITE ? txt_endWin : txt_endLoose));
         tlkSend(file, "white");
-        gameOver();
+        gameOver('w');
     }
 }

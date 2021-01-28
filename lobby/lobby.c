@@ -6,6 +6,7 @@ bool isLobby() {
 
 Player joinLobby() {
     char* message = tlkRecv(file_lobby);
+    connected = true;
     if (*message == 'b') return WHITE;
     if (*message == 'w') return BLACK;
     else
@@ -21,6 +22,7 @@ static int waitForPlayer(void* arg) {
     unused(arg);
     if (tlkSendAsync(file_lobby, "%c", player) > 0) {
         UIStackVisibleName(ui_stack, scene_game);
+        connected = true;
         return false;
     }
     return true;
@@ -30,6 +32,7 @@ void hostLobby() {
     UIStackVisibleName(ui_stack, scene_lobby);
     g_timeout_add(250, waitForPlayer, NULL);
     createGame();
+    host = true;
 }
 
 void createLobby() {

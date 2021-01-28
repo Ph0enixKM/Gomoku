@@ -11,7 +11,7 @@ LFLAGS = -lm
 CGTK = `pkg-config --cflags gtk+-3.0`
 LGTK = `pkg-config --libs gtk+-3.0`
 NAME = Gomoku
-SRC = main.c include/include.c menu/menu.c utils/utils.c lobby/lobby.c talk/talk.c game/game.c game/check.c end/end.c 
+SRC = main.c include/include.c menu/menu.c utils/utils.c lobby/lobby.c talk/talk.c game/game.c game/check.c 
 
 all: $(NAME)
 	./$(NAME)

@@ -7,12 +7,10 @@
 UI ui_window = NULL;
 UI ui_stack = NULL;
 UI ui_status = NULL;
-UI ui_verdict = NULL;
 UI ui_grid = NULL;
 
 // Data
 Player player = NONE;
-char* verdict = NULL;
 int* fields = NULL;
 bool turn = false;
 int size = 15;
@@ -20,6 +18,8 @@ int winReq = 5;
 Pos* trace = NULL;
 UI* btns = NULL;
 int gameBuffer = 64;
+bool host = false;
+bool connected = false;
 
 // Pipes
 TlkPipe whiteDump;
@@ -51,7 +51,6 @@ const char* scene_lobby = "lobby";
 const char* scene_end = "end";
 
 void initGlobal(void) {
-    verdict = txt_endLeft;
     fields = calloc(size * size, sizeof(int));
     btns = calloc(size * size, sizeof(UI));
     trace = calloc(winReq, sizeof(Pos));

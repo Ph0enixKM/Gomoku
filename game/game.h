@@ -16,6 +16,6 @@ void createGame();
 void gameCheck();
 
 // Show game over
-void gameOver();
+void gameOver(char symbol);
 
 #endif

@@ -18,7 +18,6 @@
 #include "talk/talk.h"
 #include "menu/menu.h"
 #include "game/game.h"
-#include "end/end.h"
 #include "utils/utils.h"
 
 // Init function for variables
@@ -30,7 +29,6 @@ void initGlobal(void);
 void deleteGlobal(void);
 
 // Elements
-extern UI ui_verdict;
 extern UI ui_window;
 extern UI ui_status;
 extern UI ui_stack;
@@ -38,14 +36,15 @@ extern UI ui_grid;
 
 // Data
 extern int gameBuffer;
+extern bool connected;
 extern Player player;
-extern char* verdict;
 extern int* fields;
 extern int winReq;
 extern Pos* trace;
 extern bool turn;
 extern int size;
 extern UI* btns;
+extern bool host;
 
 // Pipes
 extern TlkPipe whiteDump;

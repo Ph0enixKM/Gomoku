@@ -15,6 +15,17 @@
     background-color: rgba(255,255,255,0.1);
 }
 
+.menu-pawn {
+    margin: 100px 70px;
+}
+
+#join {
+    margin: 125px;
+    border-radius: 10px;
+    border: 10px solid rgba(0,0,0,0.1);
+    font-size: 25px;
+}
+
 #jumbo {
     font-size: 30px;
     animation-name: menu;
@@ -36,9 +47,12 @@
     border-radius: 0px;
 }
 
-.black-field.trace {
+.black-field.trace.win {
     background: rgb(27, 136, 0);
-    animation: win 3s infinite;
+}
+
+.black-field.trace {
+    background: rgb(136, 0, 0);
 }
 
 .black-field:hover {
@@ -78,9 +92,12 @@
     border-radius: 0px;
 }
 
-.white-field.trace {
+.white-field.trace.win {
     background: rgb(27, 136, 0);
-    animation: win 3s infinite;
+}
+
+.white-field.trace {
+    background: rgb(136, 0, 0);
 }
 
 .white-field:hover {
@@ -110,18 +127,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-@keyframes win {
-    0% {
-        background-color: rgb(27, 136, 0);
-    }
-    50% {
-        background-color: rgb(0, 156, 0);
-    }
-    100% {
-        background-color: rgb(27, 136, 0);
-    }
 }
 
 @keyframes select {
