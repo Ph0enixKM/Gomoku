@@ -5,14 +5,14 @@ static void onExit() {
     if (host)
         remove(file_lobby);
     if (connected) {
-        char* file = (player == BLACK) 
-            ? file_blackDump 
-            : file_whiteDump;
+        char* file = getGameDumpFile();
         tlkSetBuffer(gameBuffer);
         tlkSend(file, "disconnected");
     }
     remove(file_whiteDump);
     remove(file_blackDump);
+    gtk_widget_destroy(ui_window);
+    gtk_main_quit();
     exit(0);
 }
 
@@ -37,5 +37,6 @@ int main(int argc, char* argv[]) {
     // Open menu
     UIStackVisibleName(ui_stack, scene_menu);
     UIEvent(ui_window, "destroy", onExit, NULL);
+    signal(SIGINT, onExit);
     gtk_main();
 }

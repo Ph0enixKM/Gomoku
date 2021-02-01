@@ -1,5 +1,7 @@
 #include <include.h>
 
+static bool load = false;
+
 bool isLobby() {
     return !access(file_lobby, F_OK);
 }
@@ -22,16 +24,22 @@ static int waitForPlayer(void* arg) {
     unused(arg);
     if (tlkSendAsync(file_lobby, "%c", player) > 0) {
         UIStackVisibleName(ui_stack, scene_game);
+        if (load) {
+            char* file = getGameDumpFile();
+            tlkSend(file, "load:%s", fields);
+            load = false;
+        }
         connected = true;
         return false;
     }
     return true;
 }
 
-void hostLobby() {
+void hostLobby(bool loadFile) {
+    if (loadFile) load = true;
     UIStackVisibleName(ui_stack, scene_lobby);
     g_timeout_add(250, waitForPlayer, NULL);
-    createGame();
+    createGame(load);
     host = true;
 }
 

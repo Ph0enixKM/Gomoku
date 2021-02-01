@@ -9,6 +9,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <signal.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <glib.h>
@@ -19,6 +20,7 @@
 #include "menu/menu.h"
 #include "game/game.h"
 #include "utils/utils.h"
+#include "save/save.h"
 
 // Init function for variables
 // using dynamic memory
@@ -33,12 +35,13 @@ extern UI ui_window;
 extern UI ui_status;
 extern UI ui_stack;
 extern UI ui_grid;
+extern UI ui_save;
 
 // Data
 extern int gameBuffer;
 extern bool connected;
 extern Player player;
-extern int* fields;
+extern char* fields;
 extern int winReq;
 extern Pos* trace;
 extern bool turn;
@@ -68,6 +71,10 @@ extern char* txt_endWin;
 extern GdkPixbuf* img_whitePawn;
 extern GdkPixbuf* img_blackPawn;
 extern GdkPixbuf* img_logo;
+extern GdkPixbuf* img_save;
+extern GdkPixbuf* img_load;
+extern GdkPixbuf* img_exit;
+extern GdkPixbuf* img_newGame;
 
 // Scenes
 extern const char* scene_lobby;

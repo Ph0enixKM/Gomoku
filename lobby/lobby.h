@@ -3,7 +3,7 @@
 
 // Player typedef
 typedef enum {
-    NONE = -1,
+    NONE = '0',
     BLACK = 'b',
     WHITE = 'w'
 } Player;
@@ -20,6 +20,6 @@ bool isLobby();
 Player joinLobby();
 
 // Host a new lobby
-void hostLobby();
+void hostLobby(bool load);
 
 #endif

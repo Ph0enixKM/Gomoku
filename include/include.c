@@ -8,10 +8,11 @@ UI ui_window = NULL;
 UI ui_stack = NULL;
 UI ui_status = NULL;
 UI ui_grid = NULL;
+UI ui_save = NULL;
 
 // Data
 Player player = NONE;
-int* fields = NULL;
+char* fields = NULL;
 bool turn = false;
 int size = 15;
 int winReq = 5;
@@ -43,6 +44,10 @@ char* txt_endFull = "Board is full";
 GdkPixbuf* img_logo = NULL;
 GdkPixbuf* img_whitePawn = NULL;
 GdkPixbuf* img_blackPawn = NULL;
+GdkPixbuf* img_save = NULL;
+GdkPixbuf* img_load = NULL;
+GdkPixbuf* img_exit = NULL;
+GdkPixbuf* img_newGame = NULL;
 
 // Scenes
 const char* scene_menu = "menu";
@@ -51,18 +56,28 @@ const char* scene_lobby = "lobby";
 const char* scene_end = "end";
 
 void initGlobal(void) {
-    fields = calloc(size * size, sizeof(int));
+    fields = calloc(size * size, sizeof(char));
     btns = calloc(size * size, sizeof(UI));
     trace = calloc(winReq, sizeof(Pos));
+    emptyFields(fields);
+    gameBuffer = 2 * size * size;
     // Load images
     img_logo = UILoadImageData("assets/logo.png");
     img_whitePawn = UILoadImageData("assets/white-pawn.png");
     img_blackPawn = UILoadImageData("assets/black-pawn.png");
+    img_save = UILoadImageData("assets/save.png");
+    img_load = UILoadImageData("assets/load.png");
+    img_exit = UILoadImageData("assets/exit.png");
+    img_newGame = UILoadImageData("assets/newgame.png");
 }
 
 void deleteGlobal(void) {
-    free(fields);
-    free(btns);
+    if (fields != NULL) {
+        free(fields);
+        free(btns);
+        free(trace);
+        fields = NULL;
+    }
 }
 
 #endif

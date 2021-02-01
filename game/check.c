@@ -1,6 +1,6 @@
 #include <include.h>
 
-static bool playerCheck(Player color) {
+static bool playerCheck(char color) {
     // Horizontal check
     for (int y = 0; y < size; y++) {
         int count = 0;
@@ -85,7 +85,7 @@ void gameCheck() {
     bool fullBoard = true;
     for (int y = 0; y < size; y++) {
         for (int x = 0; x < size; x++) {
-            if (fields[y * size + x] == 0) {
+            if (fields[y * size + x] == '0') {
                 fullBoard = false;
                 break;
             }

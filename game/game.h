@@ -10,7 +10,7 @@ typedef struct {
 // Remember that this function
 // Must be invoked after we 
 // Know which color is our player
-void createGame();
+void createGame(bool load);
 
 // Check if this is game over
 void gameCheck();
