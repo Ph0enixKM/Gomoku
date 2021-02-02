@@ -1,0 +1,185 @@
+\hypertarget{lobby_8h}{}\doxysection{lobby/lobby.h File Reference}
+\label{lobby_8h}\index{lobby/lobby.h@{lobby/lobby.h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lobby_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} \{ \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9ac157bdf0b85a40d2619cbc8bc1ae5fe2}{N\+O\+NE}} = \textquotesingle{}0\textquotesingle{}, 
+\mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9af77fb67151d0c18d397069ad8c271ba3}{B\+L\+A\+CK}} = \textquotesingle{}b\textquotesingle{}, 
+\mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9a283fc479650da98250635b9c3c0e7e50}{W\+H\+I\+TE}} = \textquotesingle{}w\textquotesingle{}
+ \}
+\begin{DoxyCompactList}\small\item\em Player typedef. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lobby_8h_a4116f2f60ed11f2e76b24f7293e54af6}{create\+Lobby}} ()
+\item 
+bool \mbox{\hyperlink{lobby_8h_aaf252a9774636cacfaf226099b33e424}{is\+Lobby}} ()
+\item 
+\mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} \mbox{\hyperlink{lobby_8h_a07e0faa83a82ec78f90b7c253346201c}{join\+Lobby}} ()
+\begin{DoxyCompactList}\small\item\em Join existing lobby. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lobby_8h_a23a4281189d8770f8af2f3419d736395}{host\+Lobby}} (bool load)
+\begin{DoxyCompactList}\small\item\em Host a new lobby. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{lobby_8h_a9c8780378078e51e7c9041cbac392db9}\label{lobby_8h_a9c8780378078e51e7c9041cbac392db9}} 
+\index{lobby.h@{lobby.h}!Player@{Player}}
+\index{Player@{Player}!lobby.h@{lobby.h}}
+\doxysubsubsection{\texorpdfstring{Player}{Player}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}
+
+
+
+Player typedef. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!lobby.h@{lobby.h}}\index{lobby.h@{lobby.h}!NONE@{NONE}}}\mbox{\Hypertarget{lobby_8h_a9c8780378078e51e7c9041cbac392db9ac157bdf0b85a40d2619cbc8bc1ae5fe2}\label{lobby_8h_a9c8780378078e51e7c9041cbac392db9ac157bdf0b85a40d2619cbc8bc1ae5fe2}} 
+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLACK@{BLACK}!lobby.h@{lobby.h}}\index{lobby.h@{lobby.h}!BLACK@{BLACK}}}\mbox{\Hypertarget{lobby_8h_a9c8780378078e51e7c9041cbac392db9af77fb67151d0c18d397069ad8c271ba3}\label{lobby_8h_a9c8780378078e51e7c9041cbac392db9af77fb67151d0c18d397069ad8c271ba3}} 
+B\+L\+A\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WHITE@{WHITE}!lobby.h@{lobby.h}}\index{lobby.h@{lobby.h}!WHITE@{WHITE}}}\mbox{\Hypertarget{lobby_8h_a9c8780378078e51e7c9041cbac392db9a283fc479650da98250635b9c3c0e7e50}\label{lobby_8h_a9c8780378078e51e7c9041cbac392db9a283fc479650da98250635b9c3c0e7e50}} 
+W\+H\+I\+TE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 5 of file lobby.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5              \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}} = \textcolor{charliteral}{'0'},}
+\DoxyCodeLine{7     \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9af77fb67151d0c18d397069ad8c271ba3}{BLACK}} = \textcolor{charliteral}{'b'},}
+\DoxyCodeLine{8     \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9a283fc479650da98250635b9c3c0e7e50}{WHITE}} = \textcolor{charliteral}{'w'}}
+\DoxyCodeLine{9 \} \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9}{Player}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lobby_8h_a4116f2f60ed11f2e76b24f7293e54af6}\label{lobby_8h_a4116f2f60ed11f2e76b24f7293e54af6}} 
+\index{lobby.h@{lobby.h}!createLobby@{createLobby}}
+\index{createLobby@{createLobby}!lobby.h@{lobby.h}}
+\doxysubsubsection{\texorpdfstring{createLobby()}{createLobby()}}
+{\footnotesize\ttfamily void create\+Lobby (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a lobby scene in a stack switcher 
+
+Definition at line 46 of file lobby.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                    \{}
+\DoxyCodeLine{47     UI box = UICreateVBox(\textcolor{keyword}{true});}
+\DoxyCodeLine{48     UI label = UICreateLabel(\mbox{\hyperlink{include_8c_a769a3590698f5091ce0853b8c8c4bc82}{txt\_lobbyWait}});}
+\DoxyCodeLine{49     UIAppend(box, label);}
+\DoxyCodeLine{50     UISetID(box, \textcolor{stringliteral}{"jumbo"});}
+\DoxyCodeLine{51     UIStackAdd(\mbox{\hyperlink{include_8c_a4623db982507063504bc083b336ff60d}{ui\_stack}}, box, \mbox{\hyperlink{include_8c_ac41b60534707441a0737bb6cb8adcc1d}{scene\_lobby}});}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+
+
+References scene\+\_\+lobby, txt\+\_\+lobby\+Wait, and ui\+\_\+stack.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{lobby_8h_a23a4281189d8770f8af2f3419d736395}\label{lobby_8h_a23a4281189d8770f8af2f3419d736395}} 
+\index{lobby.h@{lobby.h}!hostLobby@{hostLobby}}
+\index{hostLobby@{hostLobby}!lobby.h@{lobby.h}}
+\doxysubsubsection{\texorpdfstring{hostLobby()}{hostLobby()}}
+{\footnotesize\ttfamily void host\+Lobby (\begin{DoxyParamCaption}\item[{bool}]{load }\end{DoxyParamCaption})}
+
+
+
+Host a new lobby. 
+
+
+
+Definition at line 38 of file lobby.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                               \{}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} (loadFile) load = \textcolor{keyword}{true};}
+\DoxyCodeLine{40     UIStackVisibleName(\mbox{\hyperlink{include_8c_a4623db982507063504bc083b336ff60d}{ui\_stack}}, \mbox{\hyperlink{include_8c_ac41b60534707441a0737bb6cb8adcc1d}{scene\_lobby}});}
+\DoxyCodeLine{41     g\_timeout\_add(250, waitForPlayer, NULL);}
+\DoxyCodeLine{42     \mbox{\hyperlink{game_8c_ab81d43d8c165bb0345a538c2ad058b73}{createGame}}(load);}
+\DoxyCodeLine{43     \mbox{\hyperlink{include_8c_a4f63d54450207faa0b56186bef691a33}{host}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+Referenced by load\+Game().
+
+\mbox{\Hypertarget{lobby_8h_aaf252a9774636cacfaf226099b33e424}\label{lobby_8h_aaf252a9774636cacfaf226099b33e424}} 
+\index{lobby.h@{lobby.h}!isLobby@{isLobby}}
+\index{isLobby@{isLobby}!lobby.h@{lobby.h}}
+\doxysubsubsection{\texorpdfstring{isLobby()}{isLobby()}}
+{\footnotesize\ttfamily bool is\+Lobby (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if lobby already exists 
+
+Definition at line 5 of file lobby.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                \{}
+\DoxyCodeLine{6     \textcolor{keywordflow}{return} !access(\mbox{\hyperlink{include_8c_a3fa4c153edf26ea11836e4333c4024fe}{file\_lobby}}, F\_OK);}
+\DoxyCodeLine{7 \}}
+
+\end{DoxyCode}
+
+
+References file\+\_\+lobby.
+
+\mbox{\Hypertarget{lobby_8h_a07e0faa83a82ec78f90b7c253346201c}\label{lobby_8h_a07e0faa83a82ec78f90b7c253346201c}} 
+\index{lobby.h@{lobby.h}!joinLobby@{joinLobby}}
+\index{joinLobby@{joinLobby}!lobby.h@{lobby.h}}
+\doxysubsubsection{\texorpdfstring{joinLobby()}{joinLobby()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} join\+Lobby (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Join existing lobby. 
+
+
+
+Definition at line 9 of file lobby.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9                    \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{char}* message = \mbox{\hyperlink{talk_8c_a35b04d02c71b3f014fe8a573bc713137}{tlkRecv}}(\mbox{\hyperlink{include_8c_a3fa4c153edf26ea11836e4333c4024fe}{file\_lobby}});}
+\DoxyCodeLine{11     \mbox{\hyperlink{include_8c_ab36823025f12a809217f7771125658c2}{connected}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{12     \textcolor{keywordflow}{if} (*message == \textcolor{charliteral}{'b'}) \textcolor{keywordflow}{return} \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9a283fc479650da98250635b9c3c0e7e50}{WHITE}};}
+\DoxyCodeLine{13     \textcolor{keywordflow}{if} (*message == \textcolor{charliteral}{'w'}) \textcolor{keywordflow}{return} \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9af77fb67151d0c18d397069ad8c271ba3}{BLACK}};}
+\DoxyCodeLine{14     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{15         fprintf(stderr, }
+\DoxyCodeLine{16             \textcolor{stringliteral}{"Host returned bad value when "}}
+\DoxyCodeLine{17             \textcolor{stringliteral}{"trying to connect to .lobby "}}
+\DoxyCodeLine{18             \textcolor{stringliteral}{"via joinLobby() function.\(\backslash\)n"}}
+\DoxyCodeLine{19         );}
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} \mbox{\hyperlink{lobby_8h_a9c8780378078e51e7c9041cbac392db9ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}};}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+
+
+References B\+L\+A\+CK, connected, file\+\_\+lobby, N\+O\+NE, tlk\+Recv(), and W\+H\+I\+TE.
+

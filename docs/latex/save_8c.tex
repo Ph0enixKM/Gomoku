@@ -1,0 +1,102 @@
+\hypertarget{save_8c}{}\doxysection{save/save.c File Reference}
+\label{save_8c}\index{save/save.c@{save/save.c}}
+{\ttfamily \#include $<$include.\+h$>$}\newline
+Include dependency graph for save.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{save_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{save_8c_a80f6490751cbd7faedf37bf5897c5494}{save\+Game}} (void)
+\begin{DoxyCompactList}\small\item\em Save a game progress to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{save_8c_a793872fec0a901ff46e527d3811fc6b9}{load\+Game}} (void)
+\begin{DoxyCompactList}\small\item\em Load a game progress from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{save_8c_a793872fec0a901ff46e527d3811fc6b9}\label{save_8c_a793872fec0a901ff46e527d3811fc6b9}} 
+\index{save.c@{save.c}!loadGame@{loadGame}}
+\index{loadGame@{loadGame}!save.c@{save.c}}
+\doxysubsubsection{\texorpdfstring{loadGame()}{loadGame()}}
+{\footnotesize\ttfamily void load\+Game (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Load a game progress from a file. 
+
+
+
+Definition at line 19 of file save.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                     \{}
+\DoxyCodeLine{20     UI dialog = gtk\_file\_chooser\_dialog\_new(}
+\DoxyCodeLine{21         \textcolor{stringliteral}{"Save File"}, GTK\_WINDOW(\mbox{\hyperlink{include_8c_a88dc9dc62ca51bc00479f33526818edd}{ui\_window}}), GTK\_FILE\_CHOOSER\_ACTION\_OPEN,}
+\DoxyCodeLine{22         \textcolor{stringliteral}{"Cancel"}, GTK\_RESPONSE\_CANCEL, \textcolor{stringliteral}{"Load"}, GTK\_RESPONSE\_ACCEPT, NULL);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} res = gtk\_dialog\_run(GTK\_DIALOG(dialog));}
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} (res == GTK\_RESPONSE\_ACCEPT)}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         \textcolor{keywordtype}{char}* filename = gtk\_file\_chooser\_get\_filename(}
+\DoxyCodeLine{27             GTK\_FILE\_CHOOSER(dialog)}
+\DoxyCodeLine{28         );}
+\DoxyCodeLine{29         \textcolor{keywordtype}{char}* text = \mbox{\hyperlink{talk_8c_a4e7406066655022cf20f024dd2a255d7}{tlkRead}}(filename);}
+\DoxyCodeLine{30         \textcolor{keywordtype}{char} symbol = 0;}
+\DoxyCodeLine{31         \textcolor{keywordtype}{int} count = sscanf(text, \textcolor{stringliteral}{"\%c:\%s"}, \&symbol, (\textcolor{keywordtype}{char}*)\mbox{\hyperlink{include_8c_acc0607c248ba1fcec57bdef31e57cf25}{fields}});}
+\DoxyCodeLine{32         \mbox{\hyperlink{include_8c_af61d6983a9396a11078805087518af88}{player}} = symbol;}
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} (count != 2)}
+\DoxyCodeLine{34             UIError(\textcolor{stringliteral}{"The game save could not be loaded"});}
+\DoxyCodeLine{35         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{36             \mbox{\hyperlink{lobby_8c_ab9a83af80c1406c861b3ad805b9ac98e}{hostLobby}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{37         g\_free(filename);}
+\DoxyCodeLine{38         free(text);}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     gtk\_widget\_destroy(dialog);}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+
+
+References fields, host\+Lobby(), player, tlk\+Read(), and ui\+\_\+window.
+
+\mbox{\Hypertarget{save_8c_a80f6490751cbd7faedf37bf5897c5494}\label{save_8c_a80f6490751cbd7faedf37bf5897c5494}} 
+\index{save.c@{save.c}!saveGame@{saveGame}}
+\index{saveGame@{saveGame}!save.c@{save.c}}
+\doxysubsubsection{\texorpdfstring{saveGame()}{saveGame()}}
+{\footnotesize\ttfamily void save\+Game (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Save a game progress to a file. 
+
+
+
+Definition at line 3 of file save.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3                     \{}
+\DoxyCodeLine{4     UI dialog = gtk\_file\_chooser\_dialog\_new(}
+\DoxyCodeLine{5         \textcolor{stringliteral}{"Save File"}, GTK\_WINDOW(\mbox{\hyperlink{include_8c_a88dc9dc62ca51bc00479f33526818edd}{ui\_window}}), GTK\_FILE\_CHOOSER\_ACTION\_SAVE,}
+\DoxyCodeLine{6         \textcolor{stringliteral}{"Cancel"}, GTK\_RESPONSE\_CANCEL, \textcolor{stringliteral}{"Save"}, GTK\_RESPONSE\_ACCEPT, NULL);}
+\DoxyCodeLine{7     \textcolor{keywordtype}{int} res = gtk\_dialog\_run(GTK\_DIALOG(dialog));}
+\DoxyCodeLine{8     \textcolor{keywordflow}{if} (res == GTK\_RESPONSE\_ACCEPT)}
+\DoxyCodeLine{9     \{}
+\DoxyCodeLine{10         \textcolor{keywordtype}{char}* filename = gtk\_file\_chooser\_get\_filename(}
+\DoxyCodeLine{11             GTK\_FILE\_CHOOSER(dialog)}
+\DoxyCodeLine{12         );}
+\DoxyCodeLine{13         \mbox{\hyperlink{talk_8c_a7cb0a0c419794583c68ed6dc917dc8d1}{tlkWrite}}(filename, \textcolor{stringliteral}{"\%c:\%s"}, \mbox{\hyperlink{include_8c_af61d6983a9396a11078805087518af88}{player}}, \mbox{\hyperlink{include_8c_acc0607c248ba1fcec57bdef31e57cf25}{fields}});}
+\DoxyCodeLine{14         g\_free(filename);}
+\DoxyCodeLine{15     \}}
+\DoxyCodeLine{16     gtk\_widget\_destroy(dialog);}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+References fields, player, tlk\+Write(), and ui\+\_\+window.
+

@@ -1,0 +1,85 @@
+\hypertarget{menu_8c}{}\doxysection{menu/menu.c File Reference}
+\label{menu_8c}\index{menu/menu.c@{menu/menu.c}}
+{\ttfamily \#include $<$include.\+h$>$}\newline
+Include dependency graph for menu.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8c_a30f10a9e803467f438f1c04c1d5d05a3}{seek\+Lobby\+Worker}} (void)
+\item 
+void \mbox{\hyperlink{menu_8c_ab831fe7c991e2f59d5a655fa1eea199f}{create\+Menu}} (void)
+\begin{DoxyCompactList}\small\item\em Create menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8c_ab831fe7c991e2f59d5a655fa1eea199f}\label{menu_8c_ab831fe7c991e2f59d5a655fa1eea199f}} 
+\index{menu.c@{menu.c}!createMenu@{createMenu}}
+\index{createMenu@{createMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{createMenu()}{createMenu()}}
+{\footnotesize\ttfamily void create\+Menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create menu. 
+
+
+
+Definition at line 108 of file menu.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108                       \{}
+\DoxyCodeLine{109     UI logo = UILoadImage(\mbox{\hyperlink{include_8c_aba446b382b08c01fdd833f7714fa0094}{img\_logo}});}
+\DoxyCodeLine{110     host\_stack = UICreateStack();}
+\DoxyCodeLine{111     menu\_stack = UICreateStack();}
+\DoxyCodeLine{112     UI vbox = UICreateVBox(\textcolor{keyword}{true});}
+\DoxyCodeLine{113     UIStackAdd(\mbox{\hyperlink{include_8c_a4623db982507063504bc083b336ff60d}{ui\_stack}}, vbox, \mbox{\hyperlink{include_8c_a37190d83961b5741a7667fce381787f1}{scene\_menu}});}
+\DoxyCodeLine{114     \textcolor{comment}{// Create a Join}}
+\DoxyCodeLine{115     UI join = UICreateButton(\textcolor{stringliteral}{"Join Game"});}
+\DoxyCodeLine{116     UIAddClass(join, \textcolor{stringliteral}{"btn-\/img"});}
+\DoxyCodeLine{117     UISetID(join, \textcolor{stringliteral}{"join"});}
+\DoxyCodeLine{118     UIEvent(join, \textcolor{stringliteral}{"clicked"}, joinGame, NULL);}
+\DoxyCodeLine{119     \textcolor{comment}{// Add to a stack}}
+\DoxyCodeLine{120     UIStackAdd(menu\_stack, host\_stack, \textcolor{stringliteral}{"host"});}
+\DoxyCodeLine{121     UIStackAdd(menu\_stack, join, \textcolor{stringliteral}{"join"});}
+\DoxyCodeLine{122     UIStackVisibleName(menu\_stack, \textcolor{stringliteral}{"host"});}
+\DoxyCodeLine{123     \mbox{\hyperlink{menu_8c_a30f10a9e803467f438f1c04c1d5d05a3}{seekLobbyWorker}}();}
+\DoxyCodeLine{124     \textcolor{comment}{// Create a menu}}
+\DoxyCodeLine{125     UISetID(vbox, \textcolor{stringliteral}{"menu"});}
+\DoxyCodeLine{126     UIAppend(vbox, logo);}
+\DoxyCodeLine{127     UIAppend(vbox, menu\_stack);}
+\DoxyCodeLine{128     createHostMenu();}
+\DoxyCodeLine{129 \}}
+
+\end{DoxyCode}
+
+
+References img\+\_\+logo.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{menu_8c_a30f10a9e803467f438f1c04c1d5d05a3}\label{menu_8c_a30f10a9e803467f438f1c04c1d5d05a3}} 
+\index{menu.c@{menu.c}!seekLobbyWorker@{seekLobbyWorker}}
+\index{seekLobbyWorker@{seekLobbyWorker}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{seekLobbyWorker()}{seekLobbyWorker()}}
+{\footnotesize\ttfamily void seek\+Lobby\+Worker (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create an async job to seek for a lobby 
+
+Definition at line 34 of file menu.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                            \{}
+\DoxyCodeLine{35     g\_timeout\_add(250, seekLobby, NULL);}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}

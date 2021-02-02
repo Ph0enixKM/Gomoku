@@ -16,6 +16,7 @@ static void onExit() {
     exit(0);
 }
 
+/// This is a test
 int main(int argc, char* argv[]) {
     initGlobal();
     gtk_init(&argc, &argv);

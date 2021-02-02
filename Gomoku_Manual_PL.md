@@ -39,6 +39,8 @@ Program składa się z następujących modułów:
 
 - **utils** - moduł zawierający funkcje które nie koniecznie są związane z jakimś modułem, albo uznałem, że nie pasują do żadnego.
 
+- **save** - moduł zawierający funkcje które odpowiadają za zapis i odczyt stanu gry.
+
 ### Struktury
 
 Nie korzystałem z wielu struktur, ponieważ udało mi się wiele problemów rozwiązać bez ich potrzeby. Przykładem może być chociaż by przesył danych między programami. Wykonałem go korzystając z tablicy charów zamiast przesyłając strukturę. Dało mi to między innymi większą swobodę do debugowania mojego programu.

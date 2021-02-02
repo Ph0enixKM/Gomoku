@@ -1,0 +1,64 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$include.\+h$>$}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This is a test. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This is a test. 
+
+
+
+Definition at line 20 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                                  \{}
+\DoxyCodeLine{21     \mbox{\hyperlink{include_8c_a7f00607c572d91f34444ff17ec29a26d}{initGlobal}}();}
+\DoxyCodeLine{22     gtk\_init(\&argc, \&argv);}
+\DoxyCodeLine{23     UILoadCSS(\textcolor{stringliteral}{"assets/style.css"});}
+\DoxyCodeLine{24     \mbox{\hyperlink{include_8c_a4623db982507063504bc083b336ff60d}{ui\_stack}} = UICreateStack();}
+\DoxyCodeLine{25     \textcolor{comment}{// Create window}}
+\DoxyCodeLine{26     \mbox{\hyperlink{include_8c_a88dc9dc62ca51bc00479f33526818edd}{ui\_window}} = UICreateWindow(\textcolor{stringliteral}{"Gomoku"}, (WindowConfig) \{}
+\DoxyCodeLine{27         .width = 600,}
+\DoxyCodeLine{28         .height = 700,}
+\DoxyCodeLine{29         .center = \textcolor{keyword}{true},}
+\DoxyCodeLine{30         .resizable = \textcolor{keyword}{false},}
+\DoxyCodeLine{31         .border = 0,}
+\DoxyCodeLine{32         .exit = \textcolor{keyword}{false}}
+\DoxyCodeLine{33     \});}
+\DoxyCodeLine{34     UIAppend(\mbox{\hyperlink{include_8c_a88dc9dc62ca51bc00479f33526818edd}{ui\_window}}, \mbox{\hyperlink{include_8c_a4623db982507063504bc083b336ff60d}{ui\_stack}});}
+\DoxyCodeLine{35     \textcolor{comment}{// Create all the required scenes}}
+\DoxyCodeLine{36     \mbox{\hyperlink{lobby_8c_a4116f2f60ed11f2e76b24f7293e54af6}{createLobby}}();}
+\DoxyCodeLine{37     \mbox{\hyperlink{menu_8c_ab831fe7c991e2f59d5a655fa1eea199f}{createMenu}}();}
+\DoxyCodeLine{38     \textcolor{comment}{// Open menu}}
+\DoxyCodeLine{39     UIStackVisibleName(\mbox{\hyperlink{include_8c_a4623db982507063504bc083b336ff60d}{ui\_stack}}, \mbox{\hyperlink{include_8c_a37190d83961b5741a7667fce381787f1}{scene\_menu}});}
+\DoxyCodeLine{40     UIEvent(\mbox{\hyperlink{include_8c_a88dc9dc62ca51bc00479f33526818edd}{ui\_window}}, \textcolor{stringliteral}{"destroy"}, onExit, NULL);}
+\DoxyCodeLine{41     signal(SIGINT, onExit);}
+\DoxyCodeLine{42     gtk\_main();}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+
+
+References create\+Lobby(), create\+Menu(), init\+Global(), scene\+\_\+menu, ui\+\_\+stack, and ui\+\_\+window.
+

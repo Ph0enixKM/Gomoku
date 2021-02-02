@@ -6,6 +6,7 @@ typedef enum {
     TLK_WRITE
 } TlkMode;
 
+//! Pipe object for object related functions
 typedef struct {
     TlkMode mode;
     int buffer;
@@ -20,17 +21,17 @@ typedef struct {
 // which are implemented asynchronously //
 //////////////////////////////////////////
 
-// Create Pipe and return an object representation
+//! Create Pipe and return an object representation
 TlkPipe tlkPipeCreate(const char* filename, int buffer, TlkMode mode);
 
-// Asynchronously send textual information to the pipe
+//! Asynchronously send textual information to the pipe
 int tlkPipeSend(TlkPipe* this, const char* format, ...);
 
-// Asynchronously receive textual 
-// information through the pipe
+//! Asynchronously receive textual 
+//! information through the pipe
 char* tlkPipeRecv(TlkPipe* this);
 
-// Close opened pipe
+//! Close opened pipe
 void tlkPipeRemove(TlkPipe* this);
 
 
@@ -39,19 +40,19 @@ void tlkPipeRemove(TlkPipe* this);
 // Standalone pipe IO functions //
 //////////////////////////////////
 
-// Set buffer size (default is 1024)
+//! Set buffer size (default is 1024)
 void tlkSetBuffer(int size);
 
-// Send textual infromation through pipe synchronously
+//! Send textual infromation through pipe synchronously
 int tlkSend(const char* filename, const char* format, ...);
 
-// Send textual information through pip asynchronously
+//! Send textual information through pip asynchronously
 int tlkSendAsync(const char* filename, const char* format, ...);
 
-// Receive textual information synchronously
+//! Receive textual information synchronously
 char* tlkRecv(const char* filename);
 
-// Receive textual information asynchronously
+//! Receive textual information asynchronously
 char* tlkRecvAsync(const char* filename);
 
 
@@ -60,10 +61,10 @@ char* tlkRecvAsync(const char* filename);
 // Standalone file IO functions //
 //////////////////////////////////
 
-// Write textual information to a file
+//! Write textual information to a file
 void tlkWrite(const char* filename, const char* format, ...);
 
-// Read textual information from a file
+//! Read textual information from a file
 char* tlkRead(const char* filename);
 
 #endif

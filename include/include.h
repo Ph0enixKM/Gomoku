@@ -22,12 +22,12 @@
 #include "utils/utils.h"
 #include "save/save.h"
 
-// Init function for variables
-// using dynamic memory
+//! Init function for variables
+//! using dynamic memory
 void initGlobal(void);
 
-// Free all the memory held
-// by all global variables
+//! Free all the memory held
+//! by all global variables
 void deleteGlobal(void);
 
 // Elements
